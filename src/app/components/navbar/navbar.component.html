@@ -1,0 +1,23 @@
+<nav class="navbar  navbar-fixed-top">
+    <div class="navbar-header">
+        <a href="#" class="navbar-brand">Picture Shop</a>
+    </div>
+    <ul class="nav navbar-right">
+      <li ><a href="/home">Home page </a>|</li>
+
+      <li *ngIf="ifLogin" style="padding-left:10px">
+            <a href="/order">Order List </a>|
+      </li>
+      <li *ngIf="ifLogin" style="padding-left:10px">
+            <a href="/list">Shopping List </a>|
+      </li>
+      <li *ngIf="!ifLogin" style="padding-left:10px">
+            <a href="/reg">Sign up </a>|
+      </li>
+      <li *ngIf="!ifLogin" style="padding-left:10px">
+            <a href="/login">Sign in </a>
+      </li>
+    </ul>
+</nav>
+
+<div class="row" style="top: -19px;position: relative;magin:0px;" ng-view></div>

@@ -1,0 +1,37 @@
+
+
+<div class="">
+  <div class="container">
+    <hr>
+    <label class="col-form-label" for="inputDefault">Search by name : </label>&nbsp;
+
+    <input [(ngModel)]="searchUser" type="text">&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="button" class="btn btn-secondary btn-sm" (click)="onSearch()">Search</button>&nbsp;&nbsp;
+    <button type="button" class="btn btn-secondary btn-sm" routerLink="/user/add">Add</button>&nbsp;&nbsp;
+    <hr>
+    <table class="table table-hover">
+      <thead>
+        <tr class="table-primary">
+          <th scope="col">Name</th>
+          <th scope="col">Sex</th>
+          <th scope="col">Age</th>
+          <th scope="col">Tel</th>
+          <th scope="col">Address</th>
+          <th scope="col">DEL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-active" *ngFor="let user of users">
+          <td><button type="button" class="btn btn-link" [(routerLink)]="'/user/'+user.name">
+            {{user.name}}</button></td>
+          <td>{{user.sex}}</td>
+          <td>{{user.age}}</td>
+          <td>{{user.tel}}</td>
+          <td>{{user.address}}</td>
+          <td><button (click)="onDelete(this.user._id)"
+            class="btn btn-danger"> DELETE</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+
+  <div class="container">
+    <hr>
+  <form (submit)="onSubmit()">
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" class="form-control"
+      [(ngModel)]="user.name" placeholder="{{user.name}}"  name="name">
+    </div>
+
+    <div class="form-group">
+      <label>Sex</label>
+      <input type="text" class="form-control"
+      [(ngModel)]="user.sex" placeholder="{{user.sex}}"  name="sex">
+    </div>
+
+    <div class="form-group">
+      <label>Age</label>
+      <input type="text" class="form-control"
+      [(ngModel)]="user.age" placeholder="{{user.age}}"  name="age">
+    </div>
+
+    <div class="form-group">
+      <label>Tel</label>
+      <input type="text" class="form-control"
+      [(ngModel)]="user.tel" placeholder="{{user.tel}}"  name="tel">
+    </div>
+
+    <div class="form-group">
+      <label>Address</label>
+      <input type="text" class="form-control"
+      [(ngModel)]="user.address" placeholder="{{user.address}}"  name="address">
+    </div>
+    <br>
+    <input type="submit" class="btn btn-success" value="submit">
+  </form>
+  </div>

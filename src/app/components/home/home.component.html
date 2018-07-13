@@ -1,0 +1,35 @@
+<div id="myCarousel"
+style="left:0%;right:0%;width:100%;padding:0px;border: 20px solid #eee;">
+    <!-- 轮播（Carousel）项目 -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <img src="assets/images/samorost3_1.jpg" style="width:100%;height:400px;" alt="First slide">
+        </div>
+    </div>
+    </div>
+    <div>
+      <h4 style="text-align:center">
+        Welcome to this picture shop.You can get the beautiful pictures from this shop
+      </h4>
+    </div>
+    <div class="pictureDiv">
+
+      <nav class="navbar navbar-default">
+        <div class="container-fluid" >
+          <div class="navbar-header"
+          *ngFor="let shopping of shopping_list;let i = index">
+            <div class="navbar-brand" href="#">
+              <img src="{{shopping.image}}"
+              style="width:120px;height:150px;"/><br>
+              <span>{{shopping.name}}</span>
+              <p>
+                  <span>{{shopping.price}}</span>
+                  <a (click)="addToList(shopping)" class="pull-right">
+                    <img style="width:30px;height:30px;border-radius:100%;"
+                    src="assets/images/littleCar.png" class="pull-right littleChart"/></a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
