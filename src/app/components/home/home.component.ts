@@ -7,52 +7,39 @@ import { DataService } from '../../services/data.service';
 })
 export class HomeComponent implements OnInit {
 
-  shopping_list = [
-    {
-            name:"botanicula_1",
-            price:"$0.19",
-            image:"assets/images/Botanicula_8.jpg"
-    },
-    {
-            name:"botanicula_2",
-            price:"$0.04",
-            image:"assets/images/Botanicula_2.jpg"
-    },
-    {
-            name:"botanicula_3",
-            price:"$0.09",
-            image:"assets/images/Botanicula_7.jpg"
-    },
-    {
-            name:"botanicula_4",
-            price:"$0.12",
-            image:"assets/images/Botanicula_4.jpg"
-    },
-    {
-            name:"botanicula_5",
-            price:"$0.11",
-            image:"assets/images/Botanicula_5.jpg"
-    },
-    {
-            name:"botanicula_6",
-            price:"$0.13",
-            image:"assets/images/Botanicula_6.jpg"
-    }
+  shopping_list : any[];
 
-  ];
+  ifLogin:boolean;
 
-  user = {
-   username:""
-  }
+  shop_cart = new Array();
+
+  url:string;
 
   constructor(private dataService: DataService) {
+
+    this.url = this.dataService.constantsList.PRODUCT;
+
+    this.dataService.getData(this.url,'', '').
+        subscribe(shopping_list=>{
+          this.shopping_list = shopping_list;
+        })
   }
 
   ngOnInit() {
+    this.ifLogin = JSON.parse(
+              window.localStorage.getItem("userInfoState")).ifLogin
   }
 
   addToList(shopping){
-      this.dataService.eventer.emit(shopping);
+      if(!this.ifLogin){
+         alert("Please sign in !");
+      }else{
+          this.shop_cart.push(shopping);
+          window.localStorage.setItem("cartState",
+                                    JSON.stringify(this.shop_cart));
+          alert("Add Successfully !");
+      }
+
   }
 
 }

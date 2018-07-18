@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
         private dataService: DataService,
         private route: ActivatedRoute,
         private router: Router) {
-
         this.url = this.dataService.constantsList.ACCOUNTUser;
        }
 
@@ -56,6 +55,9 @@ export class LoginComponent implements OnInit {
               else{
                 this.loginInfo = {username: user[0].username, ifLogin:true};
                 this.dataService.eventer.emit(this.loginInfo);
+
+                window.localStorage.setItem("userInfoState",
+                                          JSON.stringify(this.loginInfo));
                 this.router.navigateByUrl("/home");
               }
             })

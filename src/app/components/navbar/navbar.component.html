@@ -17,6 +17,9 @@
       <li *ngIf="!ifLogin" style="padding-left:10px">
             <a href="/login">Sign in </a>
       </li>
+      <li *ngIf="ifLogin" style="padding-left:10px">
+            <a href="/home" (click)="doLogout()">Logout </a>
+      </li>
     </ul>
 </nav>
 

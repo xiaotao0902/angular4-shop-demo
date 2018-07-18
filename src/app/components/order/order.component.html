@@ -1,22 +1,23 @@
 <div class="col-md-12">
-    <div class="panel-body" style="margin-top:20px;">
+    <div class="panel-body" style="margin-top:20px;;height:{{panelsize}};">
         <table class="table" >
             <thead>
             <tr>
                 <td>Order No</td>
-                <td>Price</td>
+                <td>Total</td>
                 <td>Order Time</td>
-                <td class="text-center">Deail</td>
+                <td width="10%"
+                *ngFor="let order of orders"></td>
             </tr>
             </thead>
             <tbody>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="text-center">
-                    <button class="btn btn-primary" ng-click="detail()">Detail</button>
-                </td>
+                <td>{{id}}</td>
+                <td>{{total}}</td>
+                <td>{{date}}</td>
+                <td *ngFor="let order of orders"><img
+                  style="width:40px;height:40px" src="{{order.image}}">
+                   <span> * {{order.count}}</span></td>
             </tr>
             </tbody>
         </table>

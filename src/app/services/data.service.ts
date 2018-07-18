@@ -11,7 +11,9 @@ export class DataService {
 
   constantsList = Object.freeze({
       HOSTUser : 'http://localhost:8000/v1/user',
-      ACCOUNTUser : 'http://localhost:8000/v1/account'
+      ACCOUNTUser : 'http://localhost:8000/v1/account',
+      ORDER :  'http://localhost:8000/v1/order',
+      PRODUCT : 'http://localhost:8000/v1/product'
   });
 
   constructor(public http:Http) {
