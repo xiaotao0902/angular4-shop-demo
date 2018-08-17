@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ElementRef } from '@angular/core';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -20,9 +20,8 @@ export class OrderComponent implements OnInit {
 
   date:string;
 
-  constructor( private dataService: DataService ) {
-
-      this.panelsize = this.orders.length*90 + "px";
+  constructor( private dataService: DataService,
+               private elementRef: ElementRef) {
 
       this.url = this.dataService.constantsList.ORDER;
 
@@ -32,12 +31,8 @@ export class OrderComponent implements OnInit {
       this.dataService.getData(url,'', '').
           subscribe(orders=>{
             this.orders = orders;
-            this.id = this.orders[0].id;
-            this.total = this.orders[0].total;
-            this.date = this.orders[0].date;
           });
     }
-
   ngOnInit() {
   }
 

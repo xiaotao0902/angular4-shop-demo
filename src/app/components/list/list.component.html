@@ -1,5 +1,6 @@
-<div class="col-md-12">
-    <div class="panel-body" style="margin-top:20px;height:{{panelsize}};">
+<div class="container">
+<div style="left:0%;right:0%;width:100%;padding:0px;border: 20px solid #eee;">
+    <div class="panel-body">
         <table class="table" >
             <thead>
             <tr>
@@ -26,9 +27,8 @@
             </tbody>
         </table>
     </div>
-
-    <div class="panel-footer clearfix" *ngIf="cart_flag"
-        style="margin-top:10px;">
+</div>
+    <div class="panel-footer clearfix"  style="margin-top:10px;" *ngIf="cart_flag">
         <div class="col-sm-offset-5 col-sm-1">
             <button type="button" (click)="doSubmit()" class="btn btn-lg btn-primary">submit</button>
         </div>

@@ -1,25 +1,26 @@
-<div class="col-md-12">
-    <div class="panel-body" style="margin-top:20px;;height:{{panelsize}};">
-        <table class="table" >
+<div class="container">
+<div style="left:0%;right:0%;width:100%;padding:0px;border:20px solid #eee;">
+    <div class="panel-body">
+        <table class="table">
             <thead>
             <tr>
                 <td>Order No</td>
                 <td>Total</td>
                 <td>Order Time</td>
-                <td width="10%"
-                *ngFor="let order of orders"></td>
+                <td></td>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>{{id}}</td>
-                <td>{{total}}</td>
-                <td>{{date}}</td>
-                <td *ngFor="let order of orders"><img
-                  style="width:40px;height:40px" src="{{order.image}}">
-                   <span> * {{order.count}}</span></td>
+            <tr *ngFor="let order of orders">
+                <td>{{order.id}}</td>
+                <td>${{order.total}}</td>
+                <td>{{order.date}}</td>
+                <td><span class="carts" style="margin-right:10px" *ngFor="let cart of order.carts">
+                    <img style="width:40px;height:40px" src="{{cart.image}}">
+                   <span> * {{cart.count}}</span></span></td>
             </tr>
             </tbody>
         </table>
     </div>
+</div>
 </div>

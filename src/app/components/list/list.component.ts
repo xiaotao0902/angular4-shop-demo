@@ -15,8 +15,6 @@ export class ListComponent implements OnInit {
 
   shop_cart_finial = new Array();
 
-  panelsize:string;
-
   total:number=0;
 
   url:string;
@@ -35,9 +33,7 @@ export class ListComponent implements OnInit {
 
     this.shop_cart = JSON.parse(
               window.localStorage.getItem("cartState"));
-    if(this.shop_cart == null){
-       this.panelsize = "90px";
-    }else{
+    if(this.shop_cart != null){
         this.cart_flag = true;
         var len = this.shop_cart.length;
         for(var i = 0; i < len; i++){
@@ -57,6 +53,7 @@ export class ListComponent implements OnInit {
 
             if(flag){
               var total = this.shop_cart[i].price.substr(1,this.shop_cart[i].price.length)*count;
+              console.log(total);
               this.shop_cart_finial.push({product_id:this.shop_cart[i].id,
                                           name:this.shop_cart[i].name,
                                           price:this.shop_cart[i].price,
@@ -67,9 +64,9 @@ export class ListComponent implements OnInit {
           }
           for(var t in this.shop_cart_finial){
             this.total = this.total + this.shop_cart_finial[t].total;
+            this.total = Number(this.total.toFixed(2));
             console.log(this.total);
           }
-          this.panelsize = this.shop_cart_finial.length*90 + "px";
         }
     }
 
