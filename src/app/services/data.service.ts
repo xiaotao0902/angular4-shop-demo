@@ -10,10 +10,10 @@ export class DataService {
   eventer: EventEmitter<any> = new EventEmitter();
 
   constantsList = Object.freeze({
-      HOSTUser : 'http://localhost:8000/v1/user',
-      ACCOUNTUser : 'http://localhost:8000/v1/account',
-      ORDER :  'http://localhost:8000/v1/order',
-      PRODUCT : 'http://localhost:8000/v1/product'
+      HOSTUser : 'http://18.188.53.2:8000/v1/user',
+      ACCOUNTUser : 'http://18.188.53.2:8000/v1/account',
+      ORDER :  'http://18.188.53.2:8000/v1/order',
+      PRODUCT : 'http://18.188.53.2:8000/v1/product'
   });
 
   constructor(public http:Http) {
